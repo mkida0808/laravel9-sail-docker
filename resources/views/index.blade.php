@@ -11,7 +11,7 @@
         <ul>
             {{-- 配列要素がからである場合を考慮する --}}
             @forelse ($posts as $index => $post)
-                <li><a href="/posts/{{ $index }}">{{ $post }}</a></li>
+                <li><a href="{{ route('posts.show', $index) }}">{{ $post }}</a></li>
             @empty
                 <li>投稿データはありません</li>
             @endforelse
