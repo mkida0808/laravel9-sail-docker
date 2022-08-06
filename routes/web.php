@@ -14,6 +14,12 @@ use App\Http\Controllers\PostController;
 |
 */
 
+// 古いルーティング表記法
 // Route::get('/', ['App\Http\Controllers\PostController', 'index']);
 // Route::get('/', [App\Http\Controllers\PostController::class, 'index']);
+
+// トップページ
 Route::get('/', [PostController::class, 'index']);
+
+// 記事詳細ページ
+Route::get('/posts/{id}', [PostController::class, 'show']);
