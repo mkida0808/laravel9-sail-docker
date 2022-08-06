@@ -10,8 +10,8 @@
         <h1>My BBS</h1>
         <ul>
             {{-- 配列要素がからである場合を考慮する --}}
-            @forelse ($posts as $post)
-                <li>{{ $post }}</li>
+            @forelse ($posts as $index => $post)
+                <li><a href="/posts/{{ $index }}">{{ $post }}</a></li>
             @empty
                 <li>投稿データはありません</li>
             @endforelse
