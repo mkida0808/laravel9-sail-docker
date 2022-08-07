@@ -31,3 +31,7 @@ Route::get('/posts/{post}', [PostController::class, 'show'])
 // 新規投稿ページ
 Route::get('/posts/create', [PostController::class, 'create'])
     ->name('posts.create');
+
+// 新規投稿ページ登録処理ルーティング
+Route::post('/posts/store', [PostController::class, 'store'])
+    ->name('posts.store');
