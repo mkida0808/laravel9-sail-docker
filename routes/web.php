@@ -19,11 +19,15 @@ use App\Http\Controllers\PostController;
 // Route::get('/', [App\Http\Controllers\PostController::class, 'index']);
 
 // トップページ
-Route::get('/', [PostController::class, 'index'])->name('posts.index');
+Route::get('/', [PostController::class, 'index'])
+    ->name('posts.index');
 
 // 記事詳細ページ(Implicit Binding)
 // Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
-Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
+Route::get('/posts/{post}', [PostController::class, 'show'])
+    ->name('posts.show')
+    ->where('post', '[0-9]+');
 
 // 新規投稿ページ
-Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+Route::get('/posts/create', [PostController::class, 'create'])
+    ->name('posts.create');
