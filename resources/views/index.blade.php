@@ -2,7 +2,10 @@
     <x-slot name="title">
         MY BBS
     </x-slot>
-    <h1>My BBS</h1>
+    <h1>
+        <span>My BBS</span>
+        <a href="{{ route('posts.create') }}">[Add]</a>
+    </h1>
     <ul>
         {{-- 配列要素がからである場合を考慮する --}}
         @forelse ($posts as $post)
