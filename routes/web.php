@@ -35,3 +35,8 @@ Route::get('/posts/create', [PostController::class, 'create'])
 // 新規投稿ページ登録処理ルーティング
 Route::post('/posts/store', [PostController::class, 'store'])
     ->name('posts.store');
+
+// 記事編集ページ
+Route::get('/posts/{post}/edit', [PostController::class, 'edit'])
+    ->name('posts.edit')
+    ->where('post', '[0-9]+');
