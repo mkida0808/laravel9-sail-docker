@@ -19,8 +19,34 @@ use App\Http\Controllers\PostController;
 // Route::get('/', [App\Http\Controllers\PostController::class, 'index']);
 
 // トップページ
-Route::get('/', [PostController::class, 'index'])->name('posts.index');
+Route::get('/', [PostController::class, 'index'])
+    ->name('posts.index');
 
 // 記事詳細ページ(Implicit Binding)
 // Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
-Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
+Route::get('/posts/{post}', [PostController::class, 'show'])
+    ->name('posts.show')
+    ->where('post', '[0-9]+');
+
+// 新規投稿ページ
+Route::get('/posts/create', [PostController::class, 'create'])
+    ->name('posts.create');
+
+// 新規投稿ページ登録処理ルーティング
+Route::post('/posts/store', [PostController::class, 'store'])
+    ->name('posts.store');
+
+// 記事編集ページ
+Route::get('/posts/{post}/edit', [PostController::class, 'edit'])
+    ->name('posts.edit')
+    ->where('post', '[0-9]+');
+
+// 記事更新ルーティング
+Route::patch('/posts/{post}/update', [PostController::class, 'update'])
+    ->name('posts.update')
+    ->where('post', '[0-9]+');
+
+// 記事削除ルーティング
+Route::delete('/posts/{post}/destroy', [PostController::class, 'destroy'])
+    ->name('posts.destroy')
+    ->where('post', '[0-9]+');
