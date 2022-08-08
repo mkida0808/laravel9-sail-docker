@@ -44,4 +44,9 @@ Route::get('/posts/{post}/edit', [PostController::class, 'edit'])
 // 記事更新ルーティング
 Route::patch('/posts/{post}/update', [PostController::class, 'update'])
     ->name('posts.update')
-    ->where('update', '[0-9]+');
+    ->where('post', '[0-9]+');
+
+// 記事削除ルーティング
+Route::delete('/posts/{post}/destroy', [PostController::class, 'destroy'])
+    ->name('posts.destroy')
+    ->where('post', '[0-9]+');
