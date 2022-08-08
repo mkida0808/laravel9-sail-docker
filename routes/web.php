@@ -40,3 +40,8 @@ Route::post('/posts/store', [PostController::class, 'store'])
 Route::get('/posts/{post}/edit', [PostController::class, 'edit'])
     ->name('posts.edit')
     ->where('post', '[0-9]+');
+
+// 記事更新ルーティング
+Route::patch('/posts/{post}/update', [PostController::class, 'update'])
+    ->name('posts.update')
+    ->where('update', '[0-9]+');
